@@ -16,7 +16,7 @@ public class Chemotaxis extends PApplet {
 
  int bacSize=30;
  Bacteria [] squad;
-// int step=8;
+ int step=8;
  public void setup()   
  {     
  	size(800,800);
@@ -47,8 +47,32 @@ public class Chemotaxis extends PApplet {
  	}
  	public void move()
  	{
- 		myX=myX+(int)(Math.random()*5)-2;
- 		myY=myY+(int)(Math.random()*5)-2;
+ 		//myX=myX+(int)(Math.random()*5)-2;
+ 		//myY=myY+(int)(Math.random()*5)-2;
+ 		if(mouseX>myX)
+ 		{
+ 			myX=myX+(int)(Math.random()*5)-1;
+ 		}
+ 		else if (mouseX<myX)
+ 		{
+ 			myX=myX+(int)(Math.random()*5)-3;
+ 		}
+ 		else
+ 		{
+ 			myX=myX+(int)(Math.random()*5)-2;
+ 		}
+ 		if(mouseY>myY)
+ 		{
+ 			myY=myY+(int)(Math.random()*5)-1;
+ 		}
+ 		else if (mouseY<myY)
+ 		{
+ 			myY=myY+(int)(Math.random()*5)-3;
+ 		}
+ 		else
+ 		{
+ 			myY=myY+(int)(Math.random()*5)-2;
+ 		}
  	}
  	public void show()
  	{
