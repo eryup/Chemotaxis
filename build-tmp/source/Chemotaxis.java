@@ -14,9 +14,9 @@ import java.io.IOException;
 
 public class Chemotaxis extends PApplet {
 
- int bacSize=30;
+ int bacSize=20;
  Bacteria [] squad;
- int step=8;
+ boolean click = false;
  public void setup()   
  {     
  	size(800,800);
@@ -35,6 +35,13 @@ public class Chemotaxis extends PApplet {
  	squad[i].show();
  	}
  }  
+ public void mousePressed()
+ {
+ 	for (int i=0;i<squad.length;i++)
+ 	{
+ 	squad[i].click();
+ 	}
+ }
  class Bacteria    
  {     
  	int myX, myY;
@@ -43,12 +50,9 @@ public class Chemotaxis extends PApplet {
  	{
  		myX=400;
  		myY=400;
- 		//bacteriaColor=1;
  	}
  	public void move()
  	{
- 		//myX=myX+(int)(Math.random()*5)-2;
- 		//myY=myY+(int)(Math.random()*5)-2;
  		if(mouseX>myX)
  		{
  			myX=myX+(int)(Math.random()*5)-1;
@@ -59,7 +63,7 @@ public class Chemotaxis extends PApplet {
  		}
  		else
  		{
- 			myX=myX+(int)(Math.random()*5)-2;
+ 			myX=myX+(int)(Math.random()*5)-(5/2);
  		}
  		if(mouseY>myY)
  		{
@@ -78,6 +82,11 @@ public class Chemotaxis extends PApplet {
  	{
  		fill(bacteriaColor[0],bacteriaColor[1],bacteriaColor[2],bacteriaColor[3]);
  		ellipse(myX, myY, bacSize, bacSize);
+ 	}
+ 	public void click()
+ 	{
+ 		myX=(int)(Math.random()*801);
+ 		myY=(int)(Math.random()*801);		
  	}
  }    
   static public void main(String[] passedArgs) {
