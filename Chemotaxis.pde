@@ -1,6 +1,5 @@
  int bacSize=20;
  Bacteria [] squad;
- boolean click = false;
  void setup()   
  {     
  	size(800,800);
@@ -12,7 +11,8 @@
  }   
  void draw()   
  {    
- 	background(50);
+ 	fill(50,80);
+ 	rect(0, 0, 800, 800);
  	for (int i=0;i<squad.length;i++)
  	{
  	squad[i].move();
@@ -29,7 +29,7 @@
  class Bacteria    
  {     
  	int myX, myY;
- 	int [] bacteriaColor={(int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256)};
+ 	int myColor=color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
  	Bacteria()
  	{
  		myX=400;
@@ -47,7 +47,7 @@
  		}
  		else
  		{
- 			myX=myX+(int)(Math.random()*5)-(5/2);
+ 			myX=myX+(int)(Math.random()*5)-2;
  		}
  		if(mouseY>myY)
  		{
@@ -64,7 +64,7 @@
  	}
  	void show()
  	{
- 		fill(bacteriaColor[0],bacteriaColor[1],bacteriaColor[2],bacteriaColor[3]);
+ 		fill(myColor);
  		ellipse(myX, myY, bacSize, bacSize);
  	}
  	void click()
