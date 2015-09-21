@@ -19,7 +19,7 @@ public class Chemotaxis extends PApplet {
  public void setup()   
  {     
  	size(800,800);
- 	squad=new Bacteria[500];
+ 	squad=new Bacteria[250];
  	for (int i=0;i<squad.length;i++)
  	{
  		squad[i] = new Bacteria();
